@@ -16,14 +16,11 @@ import kotlin.concurrent.thread
 
 class MainActivity : AppCompatActivity() {
 
-    //private var contentTextView:TextView? = null
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         var requestButto:Button = findViewById<Button>(R.id.Request)
-        //contentTextView = findViewById<TextView>(R.id.content)
         requestButto.setOnClickListener{
             request("https://api.openweathermap.org/data/2.5/weather?units=metric&q=Kropyvnytskyi&appid=d1c14c40806c571998d65cf2c1d8d818")
         }
@@ -47,11 +44,13 @@ class MainActivity : AppCompatActivity() {
                         tempLine = bufferedReader.readLine()
                     }
                     handler.post{
-                        //contentTextView?.text = line
+
                         val employee = Gson().fromJson(line, Employee::class.java)
 
                         val nameCity:TextView = findViewById(R.id.nameCity)
+
                         nameCity.text = employee.name;
+
                     }
                 }
             }
