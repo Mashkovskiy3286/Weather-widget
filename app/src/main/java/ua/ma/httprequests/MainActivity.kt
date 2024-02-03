@@ -48,8 +48,22 @@ class MainActivity : AppCompatActivity() {
                         val employee = Gson().fromJson(line, Employee::class.java)
 
                         val nameCity:TextView = findViewById(R.id.nameCity)
+                        val temp:TextView = findViewById(R.id.temp)
+                        val feels_like:TextView = findViewById(R.id.feels_like)
+                        val pressure:TextView = findViewById(R.id.pressure)
+                        val humidity:TextView = findViewById(R.id.humidity)
+                        val speed:TextView = findViewById(R.id.speed)
+                        val gust:TextView = findViewById(R.id.gust)
+                        val all:TextView = findViewById(R.id.all)
 
                         nameCity.text = employee.name;
+                        temp.text = employee.main.temp;
+                        feels_like.text = employee.main.feels_like;
+                        pressure.text = employee.main.pressure;
+                        humidity.text = employee.main.humidity;
+                        speed.text = employee.wind.speed;
+                        gust.text = employee.wind.gust;
+                        all.text = employee.clouds.all;
 
                     }
                 }
